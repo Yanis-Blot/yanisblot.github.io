@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Yanis Blot–El Mazouzi</title>
+  <meta name="description" content="Yanis Blot–El Mazouzi, engineering student at IMT Mines Alès specializing in data science and AI: projects and publications.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Yanis Blot–El Mazouzi">
+  <meta property="og:description" content="Projects and publications in data science and AI.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="content.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <!-- Text, links, projects and publications come from content.js. -->
+
+  <header class="masthead">
+    <div class="masthead__inner container">
+      <img class="masthead__photo" id="photo" alt="" width="152" height="152">
+
+      <div class="masthead__body">
+        <h1 class="masthead__name" data-name></h1>
+        <p class="masthead__intro" id="intro"></p>
+        <!-- Links from content.js are inserted before the email button. Icons are added by main.js. -->
+        <ul class="contacts" id="contacts">
+          <li>
+            <button class="button button--icon" id="email-toggle" type="button" aria-label="Email" title="Email" aria-expanded="false" aria-controls="email-panel"></button>
+          </li>
+        </ul>
+      </div>
+
+      <p class="email-panel" id="email-panel" hidden>
+        <a class="email-panel__address" id="email-address" href=""></a>
+        <button class="text-button" id="email-copy" type="button" data-done="Copied">Copy</button>
+      </p>
+    </div>
+  </header>
+
+  <main class="page container">
+    <section class="section" aria-labelledby="projects-title">
+      <h2 class="section__title" id="projects-title">Projects</h2>
+      <!-- data-limit sets how many projects the home page shows. -->
+      <ul class="projects" id="projects" data-limit="6"></ul>
+      <p class="section__more" id="projects-more" hidden>
+        <a href="projects.html">All projects (<span id="projects-count"></span>) →</a>
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="publications-title">
+      <h2 class="section__title" id="publications-title">Publications</h2>
+      <ol class="publications" id="publications"></ol>
+    </section>
+  </main>
+</body>
+</html>

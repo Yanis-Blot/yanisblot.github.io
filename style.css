@@ -1,0 +1,547 @@
+/* ==========================================================================
+   Colors, fonts and column width
+   ========================================================================== */
+
+:root {
+  --paper: #faf8f3;     /* off-white page background */
+  --cream: #f2ebdc;     /* light cream for the header band and thumbnails */
+  --ink: #111111;       /* black text */
+  --gray: #6b665d;      /* secondary text */
+  --gray-dark: #4a4640; /* dark gray for hover states */
+  --rule: #ddd5c4;      /* rules and borders */
+  --link: #0000ee;      /* classic link blue for publication titles */
+
+  --serif: "EB Garamond", Garamond, Georgia, serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  --width: 50rem;   /* column width */
+  --gutter: 1.5rem; /* side margins */
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.container {
+  max-width: calc(var(--width) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.masthead {
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "photo body"
+    ".     email";
+  align-items: center;
+  column-gap: 2.75rem;
+  padding-block: 4rem 3.25rem;
+}
+
+.masthead__photo {
+  grid-area: photo;
+  width: 9.5rem;
+  height: 9.5rem;
+  margin: 6px; /* ring thickness, keeps the circle aligned with the column */
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper);
+  box-shadow: 0 0 0 5px var(--cream), 0 0 0 6px var(--ink);
+}
+
+.masthead__body {
+  grid-area: body;
+}
+
+.masthead__name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.125rem, 1.6rem + 2.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.masthead__intro {
+  max-width: 34em;
+  margin: 0.85rem 0 0;
+}
+
+/* Contact buttons */
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6em 1.05em;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 500 0.75rem/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button[aria-expanded="true"] {
+  border-color: var(--gray-dark);
+  background: var(--gray-dark);
+  color: var(--cream);
+}
+
+.button--icon {
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Email address, fades in below the buttons after a click on the email icon. */
+
+.email-panel {
+  grid-area: email;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.25rem;
+  margin: 1.1rem 0 0;
+  animation: fade-in 0.4s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.email-panel__address {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gray);
+  font: 500 0.75rem/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.page {
+  padding-block: 0.5rem 4rem;
+}
+
+.section {
+  margin-top: 3.5rem;
+}
+
+.section__title {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 1.75rem;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.section__title::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--ink);
+}
+
+.section__more,
+.back-link {
+  margin: 2rem 0 0;
+  font-size: 0.875rem;
+}
+
+.section__more {
+  text-align: right;
+}
+
+/* ==========================================================================
+   Projects, grid on desktop and list on mobile
+   ========================================================================== */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project__media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--cream);
+}
+
+.project__media img,
+.project__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder for projects without an image. */
+.project__placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  box-shadow: inset 0 0 0 6px var(--cream), inset 0 0 0 7px var(--rule);
+  color: var(--gray);
+  font: italic 400 2.75rem/1 var(--serif);
+}
+
+.project__date {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--gray);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project__title {
+  margin: 0.9rem 0 0.25rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.project__date + .project__title {
+  margin-top: 0.15rem;
+}
+
+.project__description {
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+a.project__link:is(:hover, :focus-visible) .project__media {
+  border-color: var(--gray-dark);
+}
+
+a.project__link:is(:hover, :focus-visible) .project__title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+@media (max-width: 52rem) {
+  .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================================================
+   Publications
+   ========================================================================== */
+
+.publications {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.publication {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) fit-content(15rem);
+  grid-template-areas:
+    "title   venue"
+    "authors date";
+  align-items: baseline;
+  gap: 0.25rem 2.5rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.publication:first-child {
+  padding-top: 0;
+}
+
+.publication__title {
+  grid-area: title;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.publication__title a {
+  color: var(--link);
+}
+
+.publication__authors {
+  grid-area: authors;
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+}
+
+.publication__authors strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.publication__venue {
+  grid-area: venue;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: right;
+}
+
+.publication__date {
+  grid-area: date;
+  margin: 0;
+  color: var(--gray);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* ==========================================================================
+   Projects page
+   ========================================================================== */
+
+.topbar {
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.topbar .container {
+  padding-block: 1.1rem;
+}
+
+.topbar__name {
+  font-family: var(--serif);
+  font-size: 1.375rem;
+  text-decoration: none;
+}
+
+.topbar__name:hover {
+  text-decoration: underline;
+}
+
+/* Shown when content.js contains an error. */
+.notice {
+  margin: 0;
+  padding: 1rem var(--gutter);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 40rem) {
+  :root {
+    --gutter: 1.25rem;
+  }
+
+  .masthead__inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "photo"
+      "body"
+      "email";
+    justify-items: center;
+    padding-block: 3rem 2.5rem;
+    text-align: center;
+  }
+
+  .masthead__photo {
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .contacts,
+  .email-panel {
+    justify-content: center;
+  }
+
+  /* Projects as a vertical list. */
+  .projects {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .project + .project {
+    border-top: 1px solid var(--rule);
+  }
+
+  .project__link {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "media date"
+      "media title"
+      "media description";
+    column-gap: 1rem;
+    padding-block: 1rem;
+  }
+
+  .project:first-child .project__link {
+    padding-top: 0;
+  }
+
+  .project__media {
+    grid-area: media;
+    align-self: start;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project__placeholder {
+    box-shadow: inset 0 0 0 4px var(--cream), inset 0 0 0 5px var(--rule);
+    font-size: 1.75rem;
+  }
+
+  .project__date {
+    grid-area: date;
+    margin-top: 0;
+  }
+
+  .project__title {
+    grid-area: title;
+    margin: 0 0 0.2rem;
+    font-size: 1.125rem;
+  }
+
+  .project__description {
+    grid-area: description;
+  }
+
+  /* Publications, with venue and date below the authors. */
+  .publication {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "title   title"
+      "authors authors"
+      "venue   date";
+    column-gap: 0.4rem;
+  }
+
+  .publication__venue,
+  .publication__date {
+    text-align: left;
+  }
+
+  .publication__venue {
+    font-size: 1.05rem;
+  }
+
+  .publication__date::before {
+    content: "· ";
+  }
+}
