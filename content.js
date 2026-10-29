@@ -47,6 +47,13 @@ const SITE = {
    */
   projects: [
     {
+      title: "U-Net for Image Segmentation",
+      date: "2026-10",
+      description: "From-scratch PyTorch implementation of the original U-Net architecture, trained on the Oxford-IIIT Pet dataset to segment cats and dogs from the background.",
+      image: "assets/projects/u-net.mp4",
+      link: "https://github.com/Yanis-Blot/U-net",
+    },
+    {
       title: "Agentic AI for Operations Research on Modular Systems",
       date: "2026-07",
       description: "Agentic system translating natural-language requests into optimization models, validated deterministically, solved with CP-SAT and ranked with TOPSIS. Kaggle competition, international team.",
