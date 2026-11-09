@@ -2,8 +2,6 @@
  * ===========================================================================
  *  SITE CONTENT
  * ===========================================================================
- *  Edit, save, then reload the page.
- *
  *  • Projects and publications are sorted by date, newest first.
  *  • The home page shows the 6 most recent projects, projects.html shows them all.
  *  • Each text value goes between double quotes and each block ends with a comma.
@@ -46,6 +44,13 @@ const SITE = {
    *   link         page opened on click
    */
   projects: [
+    {
+      title: "Low-Dose Mammogram Denoising",
+      date: "2026-11",
+      description: "PyTorch residual CNN trained on the MIAS dataset to denoise simulated low-dose mammograms (Poisson noise), benchmarked against the classical BM3D algorithm.",
+      image: "assets/projects/mammogram-denoising.mp4",
+      link: "https://github.com/Yanis-Blot/mammogram-denoising",
+    },
     {
       title: "U-Net for Image Segmentation",
       date: "2026-10",
