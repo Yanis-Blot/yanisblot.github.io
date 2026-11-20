@@ -18,26 +18,22 @@
 <body>
   <!-- Text, links, projects and publications come from content.js. -->
 
+  <!-- Wide screens: card on the left, content on the right. Narrow screens: header band on top. -->
+  <div class="layout">
   <header class="masthead">
-    <div class="masthead__inner container">
-      <img class="masthead__photo" id="photo" alt="" width="152" height="152">
-
-      <div class="masthead__body">
-        <h1 class="masthead__name" data-name></h1>
-        <p class="masthead__intro" id="intro"></p>
-        <!-- Links from content.js are inserted before the email button. Icons are added by main.js. -->
-        <ul class="contacts" id="contacts">
-          <li>
-            <button class="button button--icon" id="email-toggle" type="button" aria-label="Email" title="Email" aria-expanded="false" aria-controls="email-panel"></button>
-          </li>
-        </ul>
-      </div>
-
-      <p class="email-panel" id="email-panel" hidden>
-        <a class="email-panel__address" id="email-address" href=""></a>
-        <button class="text-button" id="email-copy" type="button" data-done="Copied">Copy</button>
-      </p>
-    </div>
+    <img class="masthead__photo" id="photo" alt="" width="152" height="152">
+    <h1 class="masthead__name" data-name></h1>
+    <p class="masthead__intro" id="intro"></p>
+    <!-- Links from content.js are inserted before the email button. Icons are added by main.js. -->
+    <ul class="contacts" id="contacts">
+      <li>
+        <button class="button button--icon" id="email-toggle" type="button" aria-label="Email" title="Email" aria-expanded="false" aria-controls="email-panel"></button>
+      </li>
+    </ul>
+    <p class="email-panel" id="email-panel" hidden>
+      <a class="email-panel__address" id="email-address" href=""></a>
+      <button class="text-button" id="email-copy" type="button" data-done="Copied">Copy</button>
+    </p>
   </header>
 
   <main class="page container">
@@ -55,5 +51,6 @@
       <ol class="publications" id="publications"></ol>
     </section>
   </main>
+  </div>
 </body>
 </html>
