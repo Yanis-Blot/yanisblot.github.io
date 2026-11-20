@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#111"/>
-  <text x="32" y="44" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#faf8f3">Y</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="17 21 150 150">
+  <rect width="192" height="192" fill="#000"/>
+  <path d="M65 56C64 70 67 78 76 78C89 78 105 56 115 35C122 55 130 85 132 110C133 129 128 141 109 146C89 151 63 157 44 157C41 146 58 129 75 119C95 107 118 96 140 88" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
